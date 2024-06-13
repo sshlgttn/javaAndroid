@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:hint="Id"
+        android:minHeight="48dp" />
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50px"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/DepartmentsAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DepartmentsAll" />
+
+        <Button
+            android:id="@+id/IllsAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IllsAll"/>
+        <Button
+            android:id="@+id/IllsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IllsName"/></TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/bigDepartments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bigDepartments"/>
+        <Button
+            android:id="@+id/IllsBenefit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IllsBenefit"/>
+        <Button
+            android:id="@+id/illsByDepartmentsId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="illsByDepartmentsId"/>
+    </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/departmentsByIllsId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="departmentsByIllsId"/>
+        <Button
+            android:id="@+id/big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="big"/>
+        <Button
+            android:id="@+id/richIlls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="richIlls"/>
+    </TableRow>
+</LinearLayout>
