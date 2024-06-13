@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                                         stringBuilder.append("Count: " + l.getCount() + "\n");
                                         stringBuilder.append("Price: " + l.getPrice() + "\n");
                                     }
-                                    showMessage("getAllDepartments", stringBuilder.toString());
+                                    showMessage("Info", stringBuilder.toString());
                                 }
                             });
 
@@ -316,7 +316,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                String URL = "http://10.0.2.2:8080/api/ills/illsByDepartmentsId" + id;
+                String URL = "http://10.0.2.2:8080/api/ills/illsByDepartmentsId/" + id;
 
                 new Thread(new Runnable() {
                     @Override
@@ -379,7 +379,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                String URL = "http://10.0.2.2:8080/api/departments/departmentsByIllsId" + id;
+                String URL = "http://10.0.2.2:8080/api/departments/departmentsByIllsId/" + id;
 
                 new Thread(new Runnable() {
                     @Override
@@ -400,19 +400,18 @@ public class MainActivity extends AppCompatActivity {
 
                             String serverResponse = response.body().string();
                             ObjectMapper mapper = new ObjectMapper();
-                            ListOfHospitalDepartments[] listOfHospitalDepartments = mapper.readValue(serverResponse, ListOfHospitalDepartments[].class);
+                            ListOfHospitalDepartments hospitalDepartment = mapper.readValue(serverResponse, ListOfHospitalDepartments.class);
 
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     StringBuilder stringBuilder = new StringBuilder();
-                                    for (ListOfHospitalDepartments l : listOfHospitalDepartments) {
-                                        stringBuilder.append("id: " + l.getId() + "\n");
-                                        stringBuilder.append("Name: " + l.getName() + "\n");
-                                        stringBuilder.append("Head: " + l.getHead() + "\n");
-                                        stringBuilder.append("Count: " + l.getCount() + "\n");
-                                        stringBuilder.append("Price: " + l.getPrice() + "\n");
-                                    }
+                                    stringBuilder.append("id: " + hospitalDepartment.getId() + "\n");
+                                    stringBuilder.append("Name: " + hospitalDepartment.getName() + "\n");
+                                    stringBuilder.append("Head: " + hospitalDepartment.getHead() + "\n");
+                                    stringBuilder.append("Count: " + hospitalDepartment.getCount() + "\n");
+                                    stringBuilder.append("Price: " + hospitalDepartment.getPrice() + "\n");
+
                                     showMessage("getIlls", stringBuilder.toString());
                                 }
                             });
@@ -430,6 +429,7 @@ public class MainActivity extends AppCompatActivity {
                 }).start();
             }
         });
+
         big.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
